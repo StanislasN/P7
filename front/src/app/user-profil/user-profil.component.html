@@ -1,0 +1,48 @@
+<div class="container">
+    <ng-container [ngSwitch]="form">
+        <div class="box">
+            <ng-template class="userProfil" [ngSwitchDefault]>
+                <div class="test">
+                    <span class="userProfil__title"> Mon profil </span>
+                    <span class="userProfil__row">
+                        <p class="userProfil__txt"> Nom : </p>
+                        <p> {{lastName}} </p>
+                    </span>
+                    <span class="userProfil__row">
+                        <p class="userProfil__txt"> Prénom : </p>
+                        <p> {{firstName}} </p>
+                    </span>
+                    <span class="userProfil__row">
+                        <p class="userProfil__txt"> Anniversaire : </p>
+                        <p> {{birthday}} </p>
+                    </span>
+                    <button mat-button color="accent" (click)="setForm('form')"> Modifier mes informations </button>
+                    <button mat-button color="accent" (click)="deleteUser()"> Supprimer mon compte </button>
+                </div>
+            </ng-template>
+            <ng-template [ngSwitchCase]="'form'">
+                <div class="test">
+                    <span class="userProfil__title"> Modifier mes informations </span>
+                    <form class="form" [formGroup]="updateUserInfo" (ngSubmit)="updateOnSubmit()">
+                        <mat-form-field>
+                            <mat-label> Nom</mat-label>
+                            <input matInput formControlName="lastName">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Prénom</mat-label>
+                            <input matInput formControlName="firstName">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label> Date d'anniversaire </mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="birthday">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <button mat-button color="accent" type="submit"> Sauvegarder mes informations
+                        </button>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+    </ng-container>
+</div>

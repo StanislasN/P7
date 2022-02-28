@@ -1,0 +1,181 @@
+//POST
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+    .createAPost {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 10px auto 0 auto;
+      position: fixed;
+     
+      bottom: 0px;
+      background-color: #314360;
+      border-radius: 20px 20px 0 0;
+      height: 150px;
+      justify-content: center;
+      width: 100%;
+      
+
+      &__writeAPost {
+        margin-top: 10px;
+        border-radius: 20px;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+      }
+
+      &__input {
+        border: none;
+        outline: none;
+        width: 100%;
+        border-radius: 20px;
+        font-family: "Nunito";
+        padding: 12px;
+      }
+
+      &__rowButtons {
+        display: flex;
+        justify-content: space-between; 
+      }
+
+      &__btn {
+        background-color: #ffd7ba;
+        font-family: "Nunito";
+        font-weight: bold;
+      }
+    }
+
+    .postFeed {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 200px;
+      margin-top: 50px;
+    }
+
+    .post {
+      width: 60%;
+      box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+      background-color: #bd5e68;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 2%;
+      color: white;
+      margin-bottom: 10px;
+      @media (max-width: 400px) {
+        width: 82%;
+      }
+
+      &__headerpost {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__postContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        .imgPost {
+          max-width: 50%;
+          max-height: 20%;
+          border-radius: 20px;
+          object-fit: cover;
+        }
+      }
+
+      &__postComment {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        color: black;
+        background-color: #ffd7d7;
+        border-radius: 30px;
+        padding: 0 10px;
+        margin: 10px;
+        position: relative;
+      }
+
+      &__postTitle {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      &__imgComment {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 9px;
+      }
+    }
+
+    .trashIcon {
+      position: absolute;
+      right: 35px;
+    }
+
+    .rowInfoPost {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px;
+      &__likes {
+        width: 20%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      &__comment {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+
+    .iconThumb {
+      font-size: 18px;
+    }
+
+    .authorOfComment {
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    //COMMENTAIRES
+    .writeAComment {
+      display: flex;
+      width: 98%;
+      position: relative;
+
+      &__input {
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        background-color: white;
+        font-family: "Nunito";
+        width: 100%;
+        margin-left: 6px;
+        padding: 15px;
+      }
+    }
+
+    .choosePic {
+      color: white;
+    }
+
+    .fas {
+      cursor: pointer;
+    }

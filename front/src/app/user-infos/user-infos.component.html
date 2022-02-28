@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="box">
+        <div class="userInfos">
+            <div class="test">
+                <span class="userInfos__title">COLLABORATEUR</span>
+                
+                <span class="userInfos__row">
+                    <label for="moderator" class="userInfos__txt">Modérateur : </label>
+                    <input moderator type="checkbox" value="false" id="moderator" (click)="setModerator($event)">
+                </span> 
+                <span class="userInfos__row">
+                    <p class="userInfos__txt"> Nom : </p>
+                    <p> {{user.lastName}} </p>
+                </span>
+                <span class="userInfos__row">
+                    <p class="userInfos__txt"> Prénom : </p>
+                    <p> {{user.firstName}} </p>
+                </span>
+                <span class="userInfos__row">
+                    <p class="userInfos__txt"> Email : </p>
+                    <p> {{user.email}} </p>
+                </span>
+                <span class="userInfos__row">
+                    <p class="userInfos__txt"> Anniversaire : </p>
+                    <p> {{user.birthday}} </p>
+                </span>
+                <span class="userInfos__row">
+                    <p class="userInfos__txt"> Supprimer l'utilisateur : </p>
+                    <div class="suppUser" *ngIf="this.authService.isAdmin()" (click)="deleteUser()">
+                        <fa-icon [icon]="faUserTimes"></fa-icon>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

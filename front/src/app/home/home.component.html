@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="dashboard">
+        <header class="header">
+            <div class="header__icon">
+                <div class="header__user">
+                    <a (click)="setWitchCompo('profil')">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="header__welcomeMsg">
+                        {{firstName}} 
+                    </div>
+                </div>
+            </div>
+            <img class="header__logo" src="/assets/img/icon-left-font-monochrome-black.png" (click)="setWitchCompo('')">
+            <a href="#">Forum</a>
+            <a [routerLink]="['']" (click)="authService.logOut()">
+                <i class="fas fa-power-off"></i>
+            </a>
+        </header>
+        <div class="top_list">
+            <div *ngIf="isAdmin" class="myTeam">
+                <div class="userList">
+                    <div class="collab" *ngFor="let user of users" (click)='onClick(user)'>
+                        <span> {{user.firstName}} {{user.lastName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ng-container [ngSwitch]="witchCompo">
+                    <ng-template [ngSwitchCase]="'profil'">
+                        <app-user-profil></app-user-profil>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="'userInfos'">
+                        <app-user-infos [user]="selectedCollaborateur"></app-user-infos>
+                    </ng-template>
+                    <ng-template [ngSwitchDefault]>
+                        <app-post-feed></app-post-feed>
+                    </ng-template>
+                </ng-container>
+            </div>
+            
+        </div>
+    </div>
+</div>

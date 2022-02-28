@@ -1,0 +1,156 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+* {
+   margin: 0;
+   overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 65px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 20px;
+  
+  &__logo {
+    width: 20%;
+    cursor: pointer; 
+  }
+
+  
+
+  &__user {
+    display: flex;
+  }
+
+  &__welcomeMsg {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+}
+
+.fas {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+a {
+  color: black;
+}
+
+.home {
+  &__box {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    background-color: #fafafa;
+    font-family: "Nunito";
+    margin: auto;
+    @media (max-width: 400px) {
+      display: block;
+    }
+  }
+
+  &__center {
+    width: 70%;
+    height: 97%;
+    background-color: #fafafa;
+    margin-top: 1%;
+  }
+
+  &__form {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 25px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.boxLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.icon {
+  font-size: 25px;
+  margin-right: 50px;
+}
+
+.headerOfFeed {
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.myTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.userList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fafafa;
+  padding: 20px 50px;
+  height: 70px; 
+  left: 0;
+  overflow: hidden;
+  background-color: #314360;
+}
+
+.collab {
+  cursor: pointer;
+  margin: 10px;
+}
+
+@media all and (max-width: 768px) {
+  .header {
+    margin: 15px 15px 0 15px;
+
+    &__logo {
+      width: 150px;
+    }
+    &__welcomeMsg {
+      font-size: 12px;
+    }
+  }
+}

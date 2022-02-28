@@ -1,0 +1,50 @@
+<div class="postContainer">
+    <div class="postFeed">
+        <div class="post" *ngFor="let post of posts">
+            <div class="post__headerpost">
+                <div class="post__postTitle">
+                    {{post.title}}
+                </div>
+                <div>{{post.author.lastName}} {{post.author.firstName}}</div>
+                <div> {{post.dateOfPublish}}</div>
+                <div *ngIf="post.author.lastName === userConnected || this.authService.isAdmin()">
+                    <i class="fas fa-trash" (click)="deletePost(post.id)"></i>
+                </div>
+            </div>
+            <div class="post__postContent">
+                <img class="imgPost" [src]="appConfigService.config.baseUrl + post.file">
+            </div>
+            <div class="rowInfoPost">
+                <div class="rowInfoPost__comments">
+                    {{post.numberOfComments}}
+                </div>
+            </div>
+            <form class="writeAComment" [formGroup]="createAComment" (ngSubmit)="onSubmitNewComment(post.id)">
+                <input class="writeAComment__input" formControlName="content" placeholder="Rédiger un commentaire"
+                    type="text" name="search" autocomplete="off">
+            </form>
+            <div class="post__postComments">
+                <div class="post__postComment" *ngFor="let comment of post.comments">
+                    <span class="authorOfComment"> {{comment.author.firstName}} {{comment.author.lastName}}</span>
+                    <span class="contentOfComment"> {{comment.content}} </span>
+                    <span class="trashIcon">
+                        <div *ngIf="comment.author.lastName === userConnected || this.authService.isAdmin()">
+                            <i class="fas fa-trash" (click)="deleteComment(comment.id, post.id)"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="createAPost">
+        <form class="createAPost__writeAPost" [formGroup]="createAPost" (ngSubmit)="onSubmitNewPost()">
+            <input class="createAPost__input" formControlName="title" placeholder="Publier un post" type="text" name="post"
+                autocomplete="off">
+            <div class="createAPost__rowButtons">
+                <input class="choosePic" #inputPhoto type="file" name="photo" (change)="onFileSelect($event)"
+                    accept="image/png, image/jpeg" />
+                <button mat-button class="createAPost__btn" type="submit">Publier</button>
+            </div>
+        </form>
+    </div>
+</div>
